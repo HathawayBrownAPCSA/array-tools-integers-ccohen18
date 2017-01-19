@@ -1,8 +1,11 @@
-/** The class IntegerArrayTools implements a variety of basic array tasks
+** The class IntegerArrayTools implements a variety of basic array tasks
   * using an array of integers.
   * 
   * The array has a fixed length MAX_NUMS but the actual number of elements
   * that are used can vary.
+  * 
+  * @author Colby Cohen
+  * @version 1/19/17
   */
 
 import java.util.Scanner;
@@ -101,28 +104,81 @@ public class IntegerArrayTools
     return sum;
   }
   
+  /** Finds the max integer of the array
+    * @return the max integer of the array
+    */
+  public int getMax ()
+  {
+    int max = arrayData[0];
+    for (int i = 0; i < arrayCount; i++)
+    {
+      if (arrayData[i] > max)
+        max = arrayData[i];
+    }
+    return max;
+  }
+  
+  /** Finds the location of the max integer of the array
+    * @return the location of the max integer of the array
+    */
+  public int getMaxIndex ()
+  {
+    int pos = 0;
+    for (int i = 0; i < arrayCount; i++)
+    {
+      if (arrayData[i] > arrayData[pos])
+        pos = i;
+    }
+    return pos;
+  }
+  
+  /** Finds the min integer of the array
+    * @return the min integer of the array
+    */
+  public int getMin() 
+  {
+   int min = arrayData[0];
+   for (int i = 0; i < arrayCount; i++) 
+   {
+    if (arrayData[i] < min)
+     min = arrayData[i];
+   }
+   return min;
+  }
+  
+  /** Finds the location of the min integer of the array
+    * @return the location of the min integer of the array
+    */
+  public int getMinIndex ()
+  {
+    int pos = 0;
+    for (int i = 0; i < arrayCount; i++)
+    {
+      if (arrayData[i] < arrayData[pos])
+        pos = i;
+    }
+    return pos;
+  }
   
   /** Tests the various array tools */
   public static void main (String[] args)
   {
     IntegerArrayTools myArray = new IntegerArrayTools();
-    //myArray.fillRandom(100, 12);
-    myArray.fillKeyboard ();
+    myArray.fillRandom(100, 12);
+    //myArray.fillKeyboard ();
     myArray.printArray ();
     System.out.println ("There are " + myArray.getCount() + " integers in the array.");
     System.out.println ("The sum is " + myArray.sumArray());
     
     // Un-comment these lines one at a time after you have written the appropriate code
-//    System.out.println ("The largest item is " + myArray.getMax() ); 
-//    System.out.println ("The largest item is at index " + myArray.getMaxIndex());
+    System.out.println ("The largest item is " + myArray.getMax() ); 
+    System.out.println ("The largest item is at index " + myArray.getMaxIndex());
 
-//    System.out.println ("The smallest item is " + myArray.getMin() );
-//    System.out.println ("The smallest item is at index " + myArray.getMinIndex());
+    System.out.println ("The smallest item is " + myArray.getMin() );
+    System.out.println ("The smallest item is at index " + myArray.getMinIndex());
     
   }
-}
-    
-    
+}   
   
   
          
